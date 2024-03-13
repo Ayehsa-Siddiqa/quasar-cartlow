@@ -1,0 +1,26 @@
+// app global css in SCSS form
+body{
+    background-color: #f2f2f2;
+}
+.container{
+    width: 1300px;
+    margin:0 auto;
+}
+
+
+@mixin apply-map($prefix, $property, $map) {
+    @each $size, $val in $map {
+        .#{$prefix}-#{$size} {
+            #{$property}: $val;
+        }
+    }
+}
+
+// ################### Possible Font Sizes #############################################
+$fontSizes: ('10': 10px, '12': 12px, '13': 13px, '14': 14px, '15': 15px, '18': 18px, '25': 25px, '35': 35px, '40': 40px);
+@include apply-map('fs', 'font-size', $fontSizes);
+
+
+// ################### Border Radius #############################################
+$borderRadius: ('10': 10px);
+@include apply-map('br', 'border-radius', $borderRadius);
